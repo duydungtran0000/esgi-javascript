@@ -37,9 +37,9 @@ function camelCase(str) {
 
 // console.log(camelCase("test      hello       "));
 // console.log(camelCase("test    -@  hello !       "));
-console.log(camelCase('Togglecase is_the coolest'));
-console.log(camelCase(null));
-console.log(camelCase({}));
+// console.log(camelCase('Togglecase is_the coolest'));
+// console.log(camelCase(null));
+// console.log(camelCase({}));
 
 function snakeCase(str){
     if(typeof str !== "string"  || str.length === 0) return "";
@@ -66,9 +66,11 @@ function leet(str){
     str = str.replace(/[eE]/gi, "3");
     str = str.replace(/[iI]/gi, "1");
     str = str.replace(/[oO]/gi, "0");
-    str = str.replace(/[uU]/gi, "_");
+    str = str.replace(/[uU]/gi, "(_)");
     str = str.replace(/[yY]/gi, "7");
     return str;
 }
 
 console.log(leet("anaconda"));
+console.log(leet("anacoNDa"));
+console.log(leet("leet"));
