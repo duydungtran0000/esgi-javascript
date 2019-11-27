@@ -43,6 +43,7 @@ console.log(camelCase({}));
 
 function snakeCase(str){
     if(typeof str !== "string"  || str.length === 0) return "";
+    str = str.replace(/[^a-zA-Z0-9-]/g, " ");
     const array = str.toLowerCase().split(" ");
     for(let i = 0; i < array.length;i++) {
         array[i] = array[i].toLowerCase();
