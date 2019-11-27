@@ -122,19 +122,20 @@ function yoda(str) {
     return str.split(' ').reverse().join(' ');
 }
 
+let codeIndex = 0
 function vig(str, code) {
     while (code.length < str.length) {
         code += code;
     }
 
-    return str.split("").map(function (car, index) {
+    return str.split("").map(function (car) {
         car = car.toLowerCase();
         console.log(car);
         const carCode = car.charCodeAt(0) - "a".charCodeAt(0);
         console.log(carCode);
         if (carCode < 0 || carCode > 25)
             return car;
-        const codeCode = code(index).charCodeAt(0) - "a".charCodeAt(0);
+        const codeCode = code[codeIndex++].charCodeAt(0) - "a".charCodeAt(0);
 
         const encodedCode = (carCode + codeCode) % 26;
 
