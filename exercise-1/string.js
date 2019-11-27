@@ -60,3 +60,15 @@ console.log(snakeCase(" toggleCase"));
 console.log(snakeCase(null));
 console.log(snakeCase({}));
 
+function leet(str){
+    if(typeof str !== "string"  || str.length === 0) return "";
+    str = str.replace(/[aA]/gi, "4");
+    str = str.replace(/[eE]/gi, "3");
+    str = str.replace(/[iI]/gi, "1");
+    str = str.replace(/[oO]/gi, "0");
+    str = str.replace(/[uU]/gi, "_");
+    str = str.replace(/[yY]/gi, "7");
+    return str;
+}
+
+console.log(leet("anaconda"));
