@@ -28,8 +28,8 @@ function capitalize(str) {
 console.log(capitalize("test hello"));
 
 function camelCase(str) {
-    str = str.replace(/[^a-zA-Z0-9-]/g, " ");
     if(typeof str !== "string"  || str.length === 0) return "";
+    str = str.replace(/[^a-zA-Z0-9-]/g, " ");
     var array = capitalize(str);
     array = array.replace(/[^a-zA-Z0-9-]/g, "");
     return array;
@@ -38,7 +38,8 @@ function camelCase(str) {
 // console.log(camelCase("test      hello       "));
 // console.log(camelCase("test    -@  hello !       "));
 console.log(camelCase('Togglecase is_the coolest'));
-
+console.log(camelCase(null));
+console.log(camelCase({}));
 
 function snakeCase(str){
     if(typeof str !== "string"  || str.length === 0) return "";
@@ -49,4 +50,12 @@ function snakeCase(str){
     return array.join("_"); 
 }
 
-console.log(snakeCase("test Hello@@@"));
+console.log(snakeCase("toggle case is the coolest"));
+console.log(snakeCase("toggleCase is the coolest"));
+console.log(snakeCase("ToggleCase is the 3oolest"));
+console.log(snakeCase("ToggleCaseIsTheCool3st"));
+console.log(snakeCase("ToggleCase is_the coolest"));
+console.log(snakeCase(" toggleCase"));
+console.log(snakeCase(null));
+console.log(snakeCase({}));
+
