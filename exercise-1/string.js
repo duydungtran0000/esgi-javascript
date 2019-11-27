@@ -1,5 +1,5 @@
 function ucfirst(str) {
-    if(typeof str !=="string"  || str.length === 0) return "";
+    if (typeof str !== "string" || str.length === 0) return "";
     return str[0].toUpperCase() + str.substring(1);
 }
 
@@ -8,27 +8,27 @@ function ucfirst(str) {
 // console.log(ucfirst({}));
 
 function capitalize(str) {
-    if(typeof str !== "string"  || str.length === 0) return "";
-    
+    if (typeof str !== "string" || str.length === 0) return "";
+
     const array = str.toLowerCase().split(" ");
 
-    for(let i = 0; i < array.length;i++) {
+    for (let i = 0; i < array.length; i++) {
         array[i] = ucfirst(array[i]);
     }
     return array.join(" ");
-/**
- * return str 
- * .toLowerCase()
- * .split(function(item) {
- *  return ucfirst(item);
- * })
- */
+    /**
+     * return str 
+     * .toLowerCase()
+     * .split(function(item) {
+     *  return ucfirst(item);
+     * })
+     */
 }
 
 console.log(capitalize("test hello"));
 
 function camelCase(str) {
-    if(typeof str !== "string"  || str.length === 0) return "";
+    if (typeof str !== "string" || str.length === 0) return "";
     str = str.replace(/[^a-zA-Z0-9-]/g, " ");
     var array = capitalize(str);
     array = array.replace(/[^a-zA-Z0-9-]/g, "");
@@ -41,27 +41,27 @@ function camelCase(str) {
 // console.log(camelCase(null));
 // console.log(camelCase({}));
 
-function snakeCase(str){
-    if(typeof str !== "string"  || str.length === 0) return "";
+function snake_case(str) {
+    if (typeof str !== "string" || str.length === 0) return "";
     str = str.replace(/[^a-zA-Z0-9-]/g, " ");
     const array = str.toLowerCase().split(" ");
-    for(let i = 0; i < array.length;i++) {
+    for (let i = 0; i < array.length; i++) {
         array[i] = array[i].toLowerCase();
     }
-    return array.join("_"); 
+    return array.join("_");
 }
 
-console.log(snakeCase("toggle case is the coolest"));
-console.log(snakeCase("toggleCase is the coolest"));
-console.log(snakeCase("ToggleCase is the 3oolest"));
-console.log(snakeCase("ToggleCaseIsTheCool3st"));
-console.log(snakeCase("ToggleCase is_the coolest"));
-console.log(snakeCase(" toggleCase"));
-console.log(snakeCase(null));
-console.log(snakeCase({}));
+console.log(snake_case("toggle case is the coolest"));
+console.log(snake_case("toggleCase is the coolest"));
+console.log(snake_case("ToggleCase is the 3oolest"));
+console.log(snake_case("ToggleCaseIsTheCool3st"));
+console.log(snake_case("ToggleCase is_the coolest"));
+console.log(snake_case(" toggleCase"));
+console.log(snake_case(null));
+console.log(snake_case({}));
 
-function leet(str){
-    if(typeof str !== "string"  || str.length === 0) return "";
+function leet(str) {
+    if (typeof str !== "string" || str.length === 0) return "";
     str = str.replace(/[aA]/gi, "4");
     str = str.replace(/[eE]/gi, "3");
     str = str.replace(/[iI]/gi, "1");
@@ -74,3 +74,16 @@ function leet(str){
 console.log(leet("anaconda"));
 console.log(leet("anacoNDa"));
 console.log(leet("leet"));
+console.log(leet("evaluation"));
+
+function verlan(str) {
+    var words = [];
+    words = str.match(/\S+/g);
+    var result = "";
+    for (var i = 0; i < words.length; i++) {
+        result += words[i].split('').reverse().join('') + " ";
+    }
+    return result
+}
+
+console.log(verlan("Hello Word!"));
