@@ -51,14 +51,14 @@ function snake_case(str) {
     return array.join("_");
 }
 
-console.log(snake_case("toggle case is the coolest"));
-console.log(snake_case("toggleCase is the coolest"));
-console.log(snake_case("ToggleCase is the 3oolest"));
-console.log(snake_case("ToggleCaseIsTheCool3st"));
-console.log(snake_case("ToggleCase is_the coolest"));
-console.log(snake_case(" toggleCase"));
-console.log(snake_case(null));
-console.log(snake_case({}));
+// console.log(snake_case("toggle case is the coolest"));
+// console.log(snake_case("toggleCase is the coolest"));
+// console.log(snake_case("ToggleCase is the 3oolest"));
+// console.log(snake_case("ToggleCaseIsTheCool3st"));
+// console.log(snake_case("ToggleCase is_the coolest"));
+// console.log(snake_case(" toggleCase"));
+// console.log(snake_case(null));
+// console.log(snake_case({}));
 
 function leet(str) {
     if (typeof str !== "string" || str.length === 0) return "";
@@ -71,19 +71,75 @@ function leet(str) {
     return str;
 }
 
-console.log(leet("anaconda"));
-console.log(leet("anacoNDa"));
-console.log(leet("leet"));
-console.log(leet("evaluation"));
-
-function verlan(str) {
-    var words = [];
-    words = str.match(/\S+/g);
-    var result = "";
-    for (var i = 0; i < words.length; i++) {
-        result += words[i].split('').reverse().join('') + " ";
-    }
-    return result
+function leet_corrige(str) {
+    if (typeof str !== "string" || str.length === 0) return "";
+    return str.replace((/[aeiouy]/gi), function (car) {
+        switch (car) {
+            case "A":
+            case "a":
+                return 4;
+            case "E":
+            case "e":
+                return 3;
+            case "I":
+            case "i":
+                return 1;
+            case "O":
+            case "o":
+                return 0;
+            case "U":
+            case "u":
+                return '(_)';
+            case "Y":
+            case "y":
+                return 7;
+        }
+    })
 }
 
-console.log(verlan("Hello Word!"));
+// console.log(leet("anaconda"));
+// console.log(leet("anacoNDa"));
+// console.log(leet("leet"));
+// console.log(leet("evaluation"));
+
+function prop_acces(str) {
+    if (typeof str !== "string" || str.length === 0) return "";
+
+}
+
+function verlan(str) {
+    if (typeof str !== "string" || str.length === 0) return "";
+    return str.split(" ").map(function (word) {
+        return word.split("").reverse().join('');
+    }).join(" ");
+}
+
+// console.log(verlan("Hello Word!"));
+console.log(verlan("hello world"));
+
+function yoda(str) {
+    if (typeof str !== "string" || str.length === 0) return "";
+    return str.split(' ').reverse().join(' ');
+}
+
+function vig(str, code) {
+    while (code.length < str.length) {
+        code += code;
+    }
+
+    return str.split("").map(function (car, index) {
+        car = car.toLowerCase();
+        console.log(car);
+        const carCode = car.charCodeAt(0) - "a".charCodeAt(0);
+        console.log(carCode);
+        if (carCode < 0 || carCode > 25)
+            return car;
+        const codeCode = code(index).charCodeAt(0) - "a".charCodeAt(0);
+
+        const encodedCode = (carCode + codeCode) % 26;
+
+        return String.fromCharCode(encodedCode + 'a'.charCodeAt(0));
+    }).join('');
+}
+
+console.log(vig("wikipedia","crypto"));
