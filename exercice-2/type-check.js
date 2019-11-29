@@ -1,5 +1,6 @@
 function type_check_v1(input,type){
-    if( input.constructor === Array && type === "Array") return true;
+    if ( typeof input ==="function" ) return true;
+    if ( input.constructor === Array && type === "Array" ) return true;
     return typeof(input) == type;
 }
 
